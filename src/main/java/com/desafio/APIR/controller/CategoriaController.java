@@ -21,6 +21,12 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaService service;
 	
+	@RequestMapping(method = RequestMethod.GET)
+	public String hello() {
+		Categoria ob = service.salvar();
+		return "Hello";
+	}
+	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET) 
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		Categoria obj = service.buscarPorId(id);
