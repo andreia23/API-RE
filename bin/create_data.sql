@@ -14,21 +14,16 @@ CREATE TABLE Produto(
 );
 
 // Inserindo sem o id
-INSERT INTO Categoria (categoria) VALUES ('Escritorio')
+INSERT INTO Categoria (categoria) VALUES ('Bebidas')
 
 // Inserindo com o id
 INSERT INTO Categoria (id_categoria,categoria) VALUES (2,'Higiene')
 
 
-INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (1,'Computador',1)
-INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (2,'Café',2)
-
-
 INSERT INTO Produto(idpro, descricao) VALUES (1,'Computador')
 INSERT INTO Produto(idpro, descricao) VALUES (2,'Café')
-
 CREATE TABLE Produto(
 	idpro Serial,
-    descricao  VARCHAR(255) NOT NULL,
+        descricao  VARCHAR(255) NOT NULL,
 	CONSTRAINT produto_pkey PRIMARY KEY (idpro)
 );

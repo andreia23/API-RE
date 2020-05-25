@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 public class Produto implements Serializable{
@@ -16,16 +19,30 @@ public class Produto implements Serializable{
 	private Integer idpro;
 	private String descricao;
 	
+	@ManyToOne
+	@JoinColumn(name= "id_categoria", nullable = false)
+	@ForeignKey(name="produto_categoria_fkey")
+	private Categoria id_categoria;
 	
+
+
 	public Produto() {
 		super();
 	}
 
 
-	public Produto(Integer idpro, String descricao) {
+//	public Produto(Integer idpro, String descricao) {
+//		super();
+//		this.idpro = idpro;
+//		this.descricao = descricao;
+//	}
+
+
+	public Produto(Integer idpro, String descricao, Categoria id_categoria) {
 		super();
 		this.idpro = idpro;
 		this.descricao = descricao;
+		this.id_categoria = id_categoria;
 	}
 
 
@@ -46,6 +63,17 @@ public class Produto implements Serializable{
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+
+	
+	public Categoria getId_categoria() {
+		return id_categoria;
+	}
+
+
+	public void setId_categoria(Categoria id_categoria) {
+		this.id_categoria = id_categoria;
 	}
 
 
