@@ -1,12 +1,17 @@
 package com.desafio.APIR.controller;
 
+
 import java.util.List;
+
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.desafio.APIR.domain.Categoria;
@@ -24,7 +29,9 @@ public class ProdutoController {
 	@Autowired
 	private CategoriaService CategoriaService;
 	
+	
 	@GetMapping("/produtos")
+	@Produces(MediaType.APPLICATION_JSON)
 	public ResponseEntity<List<Produto>> getAllProduto(){
 		return ResponseEntity.ok().body(ProdutoService.TodosProduto());
 	}
