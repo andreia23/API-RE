@@ -14,15 +14,16 @@ CREATE TABLE Produto(
 );
 
 // Inserindo sem o id
-INSERT INTO Categoria (categoria) VALUES ('Escritorio')
+INSERT INTO Categoria (categoria) VALUES ('Higiene')
 
 // Inserindo com o id
-INSERT INTO Categoria (id_categoria,categoria) VALUES (2,'Higiene')
+INSERT INTO Categoria (id_categoria,categoria) VALUES (2,'Bebidas')
 
 
-INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (1,'Computador',1)
+INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (1,'Sabonete',1)
 INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (2,'Café',2)
 
+//APAGAR
 
 INSERT INTO Produto(idpro, descricao) VALUES (1,'Computador')
 INSERT INTO Produto(idpro, descricao) VALUES (2,'Café')

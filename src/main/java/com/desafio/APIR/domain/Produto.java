@@ -31,11 +31,11 @@ public class Produto implements Serializable{
 	}
 
 
-//	public Produto(Integer idpro, String descricao) {
-//		super();
-//		this.idpro = idpro;
-//		this.descricao = descricao;
-//	}
+	public Produto(Integer idpro, String descricao) {
+		super();
+		this.idpro = idpro;
+		this.descricao = descricao;
+	} 
 
 
 	public Produto(Integer idpro, String descricao, Categoria id_categoria) {
