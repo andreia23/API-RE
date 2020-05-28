@@ -23,13 +23,4 @@ INSERT INTO Categoria (id_categoria,categoria) VALUES (2,'Bebidas')
 INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (1,'Sabonete',1)
 INSERT INTO Produto(idpro, descricao,id_categoria) VALUES (2,'Café',2)
 
-//APAGAR
 
-INSERT INTO Produto(idpro, descricao) VALUES (1,'Computador')
-INSERT INTO Produto(idpro, descricao) VALUES (2,'Café')
-
-CREATE TABLE Produto(
-	idpro Serial,
-    descricao  VARCHAR(255) NOT NULL,
-	CONSTRAINT produto_pkey PRIMARY KEY (idpro)
-);

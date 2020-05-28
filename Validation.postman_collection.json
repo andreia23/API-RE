@@ -1,23 +1,24 @@
 {
 	"info": {
-		"_postman_id": "01c16862-2df5-452b-a2e6-0160de3d2761",
+		"_postman_id": "51daad92-9650-44b3-977b-5b9efddd6cc1",
 		"name": "Validation.postman_collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/validacao",
+			"name": "http://localhost:8080/produtos/validacao",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/validacao",
+					"raw": "http://localhost:8080/produtos/validacao",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"produtos",
 						"validacao"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "05b5d936-6a5d-4400-b03f-a8635f94fde1",
+		"_postman_id": "9e92dfbc-a26f-4933-94e2-520fd60f5b90",
 		"name": "Product.postman_collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,12 +25,12 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/produtos/2",
+			"name": "http://localhost:8080/produtos/1",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/produtos/2",
+					"raw": "http://localhost:8080/produtos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -38,7 +38,7 @@
 					"port": "8080",
 					"path": [
 						"produtos",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -64,9 +64,29 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/produtos/4",
+			"name": "http://localhost:8080/produtos/3",
 			"request": {
 				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/produtos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/produtos/4",
+			"request": {
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "http://localhost:8080/produtos/4",
@@ -78,26 +98,6 @@
 					"path": [
 						"produtos",
 						"4"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:8080/produtos/5",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/produtos/5",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"produtos",
-						"5"
 					]
 				}
 			},
