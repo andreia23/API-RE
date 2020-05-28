@@ -39,8 +39,9 @@ public class ProdutoService implements Services{
 
 	@Override
 	public List<Produto> TodosProduto() {
-		return this.ProdutoRepository.findAll();
-	}
+		return ProdutoRepository.findAll();
+		 
+}
 
 	@Override
 	public Produto ProdutoPorID(Integer produtoId) {
