@@ -43,10 +43,8 @@ public class ProdutoController {
 	@GetMapping(value="/{idpro}",produces="application/json")
 	public ResponseEntity<Produto> getProdutoById(@PathVariable Integer idpro){
 		return ResponseEntity.ok().body(this.ProdutoService.ProdutoPorID(idpro));
-
 	
 	}
-	
 	
 	@ApiOperation(value="Salva um produto")
 	@PostMapping()
@@ -75,11 +73,11 @@ public class ProdutoController {
 	@GetMapping(value="/validacao",produces="application/json")
 	public String arquivo(String file_type, File file){
 		LocalDateTime date_time = LocalDateTime.now();
-	    String file_name = file.getName();
-	    JSONObject my_obj = new JSONObject();
-	    my_obj.put("file_name", file_name+"."+ file_type );
-	    my_obj.put("date_time", date_time);
-	    my_obj.put("status", "VALID");
+	    	String file_name = file.getName();
+	    	JSONObject my_obj = new JSONObject();
+	    	my_obj.put("file_name", file_name+"."+ file_type );
+	    	my_obj.put("date_time", date_time);
+	    	my_obj.put("status", "VALID");
 		return my_obj.toString();
 		
 	}
