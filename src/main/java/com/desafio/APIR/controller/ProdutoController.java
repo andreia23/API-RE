@@ -1,12 +1,8 @@
 package com.desafio.APIR.controller;
 
-
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.List;
-
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,15 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.desafio.APIR.domain.Categoria;
 import com.desafio.APIR.domain.Produto;
-import com.desafio.APIR.services.CategoriaService;
 import com.desafio.APIR.services.ProdutoService;
+
 
 @RestController
 public class ProdutoController {
@@ -34,9 +27,8 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoService ProdutoService;
 	
-
-	@Autowired
-	private CategoriaService CategoriaService;
+	//@Autowired
+	//private CategoriaService CategoriaService;
 	
 	 
 	@GetMapping("/produtos")
@@ -54,6 +46,7 @@ public class ProdutoController {
 		return allDataArray.toString();
 	}
 	
+	
 	@GetMapping("/produtos/{idpro}")
 	public String getProdutoById(@PathVariable Integer idpro){
 		Produto retorno = ProdutoService.ProdutoPorID(idpro);
@@ -64,44 +57,49 @@ public class ProdutoController {
 		return my_json.toString();
 	}
 	
+	
 	@PostMapping("/produtos")
-	public Produto createProduto(){
-
-		Categoria cat2 = new Categoria(null,"Roupas");
-		CategoriaService.createCategoria(cat2);
-		Produto p2 = new Produto(null,"Vestido",cat2);
-		return ProdutoService.createProduto(p2);
+	public Produto createProduto(@RequestBody Produto produto){
+		//Categoria cat2 = new Categoria(null,"Roupas");
+		//CategoriaService.createCategoria(cat2);
+		//Produto p2 = new Produto(null,"Vestido",cat2);
+		return ProdutoService.createProduto(produto);
+		
 	}
 	
+	
 	@PutMapping("/produtos/{id}")
-	public ResponseEntity<Produto> updateProduto(@PathVariable Integer id){
-//		Produto.setId(id);
-		Categoria cat2 = new Categoria(null,"Informatica");
-		CategoriaService.createCategoria(cat2);
-		Produto p2 = new Produto(id,"Computador",cat2);
-		return ResponseEntity.ok().body(this.ProdutoService.updateProduto(p2));
+	public ResponseEntity<Produto> updateProduto(@PathVariable Integer id,@RequestBody Produto produto){
+		produto.setIdpro(id);;
+		//Categoria cat2 = new Categoria(null,"Informatica");
+		//CategoriaService.createCategoria(cat2);
+		//Produto p2 = new Produto(id,"Computador",cat2);
+		return ResponseEntity.ok().body(this.ProdutoService.updateProduto(produto));
+		
 	}
+	
 
 	@DeleteMapping("/produtos/{id}")
 	public HttpStatus deleteProduto(@PathVariable Integer id){
 		this.ProdutoService.deleteProduto(id);
 		return HttpStatus.OK;
+		
 	}
 	
-	@GetMapping("/arquivo")
-	public String arquivo(){
-
-		File file = new File("../Teste.pdf");
+	
+	@GetMapping("/validacao")
+	public String arquivo(String file_type, File file){
+		//File file1 = new File("../teste2");
+		//String tipo = "pdf";
 		LocalDateTime date_time = LocalDateTime.now();
 	    String file_name = file.getName();
-	    
 	    JSONObject my_obj = new JSONObject();
-	    my_obj.put("file_name", file_name );
+	    my_obj.put("file_name", file_name+"."+ file_type );
 	    my_obj.put("date_time", date_time);
+	    my_obj.put("status", "VALID");
 	    
 		return my_obj.toString();
 		
-		
 	}
-	
+
 }
